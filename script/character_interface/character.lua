@@ -254,14 +254,14 @@ function Character:determine_job(entity, position)
     if entity.type == "entity-ghost" then
       self:remark{"build-command"}
       self:find_and_batch("build", {type = "entity-ghost", force = force})
-      self:build_ghost(entity, -1)
+      self:build_ghost(entity)
       return
     end
 
     if entity.type == "tile-ghost" then
       self:remark{"build-command"}
       self:find_and_batch("build", {type = "tile-ghost", force = force})
-      self:build_ghost(entity, -1)
+      self:build_ghost(entity)
       return
     end
 
