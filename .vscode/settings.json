@@ -1,0 +1,15 @@
+{
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "Lua.workspace.library": [
+    "c:\\Program Files\\Factorio\\data"
+  ],
+  "Lua.workspace.checkThirdParty": "ApplyInMemory",
+  "Lua.runtime.version": "Lua 5.2",
+  "[lua]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua"
+  },
+  "Lua.workspace.userThirdParty": [
+    "c:\\Users\\Austin\\AppData\\Roaming\\Code\\User\\workspaceStorage\\a65c51e9076da2135d37324440a124e8\\justarandomgeek.factoriomod-debug\\sumneko-3rd"
+  ]
+}
