@@ -195,6 +195,7 @@ end
 
 function Character:clear_remark()
   if not self.remark_id then return end
+  self.remark_string = nil
   return rendering.is_valid(self.remark_id) and rendering.destroy(self.remark_id)
 end
 
@@ -218,6 +219,12 @@ function Character:remark(string, color)
     scale_with_zoom = true,
     only_in_alt_mode = false
   }
+
+  self.remark_string = string
+end
+
+function Character:get_remark()
+  return self.remark_string
 end
 
 local can_follow =

@@ -12,7 +12,6 @@ Klient.metatable =
 }
 
 function Klient.new(player)
-
   local klient =
   {
     player = player,
@@ -127,5 +126,7 @@ lib.on_load = function()
     setmetatable(klient, Klient.metatable)
   end
 end
+
+lib.Klient = Klient
 
 return lib
