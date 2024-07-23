@@ -28,6 +28,7 @@ local interface = {
       return
     end
 
+    int:clear_state()
     int:determine_job(selected_entity, cursor_position)
   end,
 
