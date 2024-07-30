@@ -11,5 +11,10 @@
   },
   "Lua.workspace.userThirdParty": [
     "c:\\Users\\Austin\\AppData\\Roaming\\Code\\User\\workspaceStorage\\a65c51e9076da2135d37324440a124e8\\justarandomgeek.factoriomod-debug\\sumneko-3rd"
-  ]
+  ],
+  "[markdown]": {
+    "editor.wordWrap": "bounded"
+  }
+  }
+
 }
