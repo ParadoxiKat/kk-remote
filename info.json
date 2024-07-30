@@ -1,11 +1,11 @@
 {
-  "name": "Kruise_Kontrol_Updated",
-  "version": "0.1.10",
-  "title": "Kruise Kontrol Updated",
-  "author": "Klonan, EliteHunter",
+  "name": "Kruise_Kontrol_Remote",
+  "version": "0.1.11",
+  "title": "Kruise Kontrol Remote",
+  "author": "Klonan, EliteHunter, Factorio Access Team",
   "contact": "",
-  "homepage": "",
-  "description": "Hit Kruise Kontrol and let it take care of your problems. Currently updated version only has bugfixes, no new features.",
+  "homepage": "https://github.com/factorio-access/kk-remote",
+  "description": "Hit Kruise Kontrol and let it take care of your problems.  Also, use it as a library from mods.  This fork adds a remote API",
   "dependencies": ["base >= 1.1.0"],
   "factorio_version": "1.1"
 }
