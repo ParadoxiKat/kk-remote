@@ -1,23 +1,31 @@
-## Kruise Kontrol for Factorio Access (aka Kruise Kontrol Remote)
+# Kruise Kontrol Remote
 
-For now this is a readme for developers.
+This is a fork of [EliteHunter's
+fork](https://mods.factorio.com/mod/Kruise_Kontrol_Updated) of [Clonan's Kruise
+Kontrol](https://mods.factorio.com/mod/Kruise_Kontrol), adding a remote API
+matching the needs of [Factorio
+Access](https://mods.factorio.com/mod/FactorioAccess).  Full docs for this API
+are maintained in script/remote.lua.  It allows performing the same actions as
+one might with the mouse by providing an API to emulate `ctrl+alt+right click`.
+Put more simply, this is Kruise Kontrol plus you can use it as a library.  We
+expect to extend the remote API, fix bugs, and potentially add new features as
+development continues.
 
-In Factorio Access we need to be able to invoke KK.  Right now we do that with
-the mouse.  That's incredibly, horribly flaky both in terms of getting it to be
-precise.  This is a fork of Kruise Kontrol Updated (found
-[here](https://mods.factorio.com/mod/Kruise_Kontrol_Updated)), not the original
-by Clonan.  We add a remote API for Factorio Access, which also happens to be
-generally useful, as this basically makes the mod a library.
+## Wait, What
 
-Note that we cannot apply stylua until or unless we decide not to go upstream. I
-(ahicks) cannot find the author for contact and there is no repo against which
-we may make a PR.
+So, as some motivation and background: Factorio Access is a mod that lets blind
+players play the game.  See, for example, [this demo
+video](https://www.youtube.com/watch?v=QW2-ujG9PSE) for how that is done.  But
+one of the things that's hard to make efficient is activities such as manual
+ghost building and deconstruction. For a while, we worked around this with the
+mouse using a custom launcher to trigger EliteHunter's fork, but that was always
+fragile.
 
-Steps to test:
-
-- Get rid of the kk zip in the mods folder.
-- Clone this repo to Kruise_Kontrol_Updated under the mods folder.  This is case
-  sensitive (for the blind, first letters capitalized).
-- After that just start things and this fork replaces.
-
-We'll handle packaging later.
+Thus this mod, which can be driven additionally by the aforementioned remote
+API.  If you want something that can automate the character doing stuff via
+remote API, this is where you likely want to be.  And if you need it to do more,
+this is likely where you want to send the PR.  While not all Factorio Access
+users uses Kruise Kontrol, 90%+ do, and so this will be maintained as long as
+Factorio Access is.  It might as well officially be a part of the main mod, in
+other words, to our knowledge, this is the only "active" fork and we are able to
+offer some weak guarantee of long-term upkeep.
