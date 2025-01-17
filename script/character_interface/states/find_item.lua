@@ -13,7 +13,7 @@ function Find_item.new(Character, name, count, radius)
   }
 
   if state.count == 0 then
-    state.count = math.ceil(game.item_prototypes[state.name].stack_size * 0.25)
+    state.count = math.ceil(prototypes.item[state.name].stack_size * 0.25)
   end
 
   return setmetatable(state, Find_item.metatable)
@@ -138,7 +138,7 @@ local stack_size_cache = {}
 local get_stack_size = function(name)
   local size = stack_size_cache[name]
   if size then return size end
-  size = game.item_prototypes[name].stack_size
+  size = prototypes.item[name].stack_size
   stack_size_cache[name] = size
   return size
 end

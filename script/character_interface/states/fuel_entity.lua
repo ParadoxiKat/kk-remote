@@ -12,7 +12,7 @@ local get_category_items = function(category)
   end
 
   local unsorted = {}
-  for item_name, item in pairs (game.item_prototypes) do
+  for item_name, item in pairs (prototypes.item) do
     if item.fuel_category and item.fuel_category == category then
       table.insert(unsorted, {name = item_name, value = item.fuel_value})
     end

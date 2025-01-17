@@ -22,9 +22,9 @@ local function get_items_to_place(entity)
     return items_to_place[name]
   end
   if entity.type == "entity-ghost" then
-    items_to_place[name] = game.entity_prototypes[name].items_to_place_this
+    items_to_place[name] = prototypes.entity[name].items_to_place_this
   elseif entity.type == "tile-ghost" then
-    items_to_place[name] = game.tile_prototypes[name].items_to_place_this
+    items_to_place[name] = prototypes.tile[name].items_to_place_this
   end
   return items_to_place[name]
 end

@@ -19,7 +19,7 @@ function Find_and_batch:finish()
 end
 
 local index = function(entity)
-  return entity.unit_number or script.register_on_entity_destroyed(entity)
+  return entity.unit_number or script.register_on_object_destroyed(entity)
 end
 
 function Find_and_batch:find()

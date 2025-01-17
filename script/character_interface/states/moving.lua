@@ -32,12 +32,12 @@ function Moving:clear_path()
   if not self.path then return end
   for k, node in pairs (self.path) do
     if node.rendering then
-      rendering.destroy(node.rendering)
+      node.rendering.destroy()
       node.rendering = nil
     end
   end
   if self.next_node_render then
-    rendering.destroy(self.next_node_render)
+    self.next_node_render.destroy()
   end
 end
 
@@ -68,7 +68,7 @@ end
 
 function Moving:render_path_to_node()
   if self.next_node_render then
-    rendering.destroy(self.next_node_render)
+    self.next_node_render.destroy()
   end
   local node = self.path[1]
   if not node then return end
@@ -131,7 +131,7 @@ function Moving:move_to_next_node()
   --self.character.entity.teleport(node.position)
   table.remove(self.path, 1)
   if node.rendering then
-    rendering.destroy(node.rendering)
+    node.rendering.destroy()
     node.rendering = nil
   end
   self:render_path_to_node()

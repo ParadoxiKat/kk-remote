@@ -41,7 +41,7 @@ function Attack:get_range()
 end
 
 function Attack:get_attack_parameters()
-  return game.item_prototypes[self.character.entity.get_inventory(defines.inventory.character_guns)[self.character.entity.selected_gun_index].name].attack_parameters
+  return prototypes.item[self.character.entity.get_inventory(defines.inventory.character_guns)[self.character.entity.selected_gun_index].name].attack_parameters
 end
 
 function Attack:can_shoot()

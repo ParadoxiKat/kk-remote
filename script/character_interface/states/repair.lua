@@ -22,7 +22,7 @@ local repair_tools
 local get_repair_tools = function()
   if repair_tools then return repair_tools end
   repair_tools = {}
-  for name, item in pairs (game.item_prototypes) do
+  for name, item in pairs (prototypes.item) do
     if item.speed then
       repair_tools[name] = true
     end

@@ -26,7 +26,7 @@ function Character.new(character_entity)
     error("Character interface only works on character entities." .. character_entity.type)
   end
 
-  script.register_on_entity_destroyed(character_entity)
+  script.register_on_object_destroyed(character_entity)
 
   local character =
   {
@@ -194,14 +194,14 @@ function Character:is_idle()
 end
 
 function Character:clear_remark()
-  if not self.remark_id then return end
+  if not self.remark_obj then return end
   self.remark_string = nil
-  return rendering.is_valid(self.remark_id) and rendering.destroy(self.remark_id)
+  return self.remark_obj.destroy()
 end
 
 function Character:remark(string, color)
   self:clear_remark()
-  self.remark_id = rendering.draw_text
+  self.remark_obj = rendering.draw_text
   {
     text = string,
     surface = self.entity.surface,
@@ -538,7 +538,7 @@ local get_localised_item_name = function(name)
   if localised_name then
     return localised_name
   end
-  localised_name = game.item_prototypes[name].localised_name
+  localised_name = prototypes.item[name].localised_name
   locale_cache[name] = localised_name
   return localised_name
 end
@@ -714,11 +714,13 @@ lib.events =
 {
   [defines.events.on_tick] = on_tick,
   [defines.events.on_script_path_request_finished] = on_script_path_request_finished,
-  [defines.events.on_entity_destroyed] = on_entity_destroyed,
+  [defines.events.on_object_destroyed] = on_entity_destroyed,
 }
 
+
+
 lib.on_load = function()
-  script_data = global.character_interface or script_data
+  script_data = storage.character_interface or script_data
 
   for k, character in pairs (script_data.characters) do
     setmetatable(character, Character.metatable)
@@ -728,7 +730,7 @@ lib.on_load = function()
 end
 
 lib.on_init = function()
-  global.character_interface = global.character_interface or script_data
+  storage.character_interface = storage.character_interface or script_data
 
   game.forces.player.set_cease_fire("neutral", true)
   game.forces.player.set_cease_fire("enemy", false)

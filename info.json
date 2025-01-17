@@ -7,5 +7,5 @@
   "homepage": "https://github.com/factorio-access/kk-remote",
   "description": "Hit Kruise Kontrol and let it take care of your problems.  Also, use it as a library from mods.  This fork adds a remote API",
   "dependencies": ["base >= 1.1.0"],
-  "factorio_version": "1.1"
+  "factorio_version": "2.0"
 }

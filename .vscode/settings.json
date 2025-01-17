@@ -1,20 +1,22 @@
 {
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
-  "Lua.workspace.library": [
-    "c:\\Program Files\\Factorio\\data"
-  ],
   "Lua.workspace.checkThirdParty": "ApplyInMemory",
   "Lua.runtime.version": "Lua 5.2",
   "[lua]": {
     "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
   "Lua.workspace.userThirdParty": [
-    "c:\\Users\\Austin\\AppData\\Roaming\\Code\\User\\workspaceStorage\\a65c51e9076da2135d37324440a124e8\\justarandomgeek.factoriomod-debug\\sumneko-3rd"
+    "c:\\Users\\Austin\\AppData\\Roaming\\Code\\User\\workspaceStorage\\9afebba77b0d2745b220766d5e1acc94\\justarandomgeek.factoriomod-debug\\sumneko-3rd"
   ],
   "[markdown]": {
     "editor.wordWrap": "bounded"
-  }
-  }
-
+  },
+  "factorio.versions": [
+    {
+      "name": "System",
+      "factorioPath": "C:\\Program Files\\Factorio\\bin\\x64\\factorio.exe",
+      "active": true
+    }
+  ]
 }

@@ -25,7 +25,7 @@ local get_recipes_for_product = function(name)
 
   recipe_products_map[name] = {}
 
-  for recipe_name, recipe in pairs (game.recipe_prototypes) do
+  for recipe_name, recipe in pairs (prototypes.recipe) do
     for k, product in pairs (recipe.products) do
       if product.name == name then
         recipe_products_map[name][recipe_name] = true
@@ -72,7 +72,7 @@ function Craft_item:get_next_recipe()
 end
 
 function Craft_item:get_ingredients()
-  local recipe = game.recipe_prototypes[self.recipe]
+  local recipe = prototypes.recipe[self.recipe]
   local to_try = {}
   for k, ingredient in pairs (recipe.ingredients) do
 
