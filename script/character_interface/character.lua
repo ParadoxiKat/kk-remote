@@ -13,20 +13,17 @@ Character.metatable =
   __index = Character,
 }
 
-function Character.get_character(unit_number)
-  local character = script_data.character[unit_number]
+function get_character(unit_number)
+  local character = script_data.characters[unit_number]
   if character and character.entity.valid then
     return character
   end
 end
 
 function Character.new(character_entity)
-
   if character_entity.type ~= "character" then
     error("Character interface only works on character entities." .. character_entity.type)
   end
-
-  script.register_on_entity_destroyed(character_entity)
 
   local character =
   {
@@ -688,7 +685,12 @@ end
 
 local on_tick = function(event)
   for k, character in pairs (script_data.characters) do
-    character:update()
+    if character.entity.valid then
+      character:update()
+    else
+      character:on_destroyed()
+      script_data.characters[k] = nil
+    end
   end
 end
 
@@ -698,23 +700,12 @@ local on_script_path_request_finished = function(event)
   end
 end
 
-local on_entity_destroyed = function(event)
-  local unit_number = event.unit_number
-  if not unit_number then return end
-  local character = script_data.characters[unit_number]
-  if character then
-    character:on_destroyed()
-    script_data.characters[unit_number] = nil
-  end
-end
-
 local lib = {}
 
 lib.events =
 {
   [defines.events.on_tick] = on_tick,
   [defines.events.on_script_path_request_finished] = on_script_path_request_finished,
-  [defines.events.on_entity_destroyed] = on_entity_destroyed,
 }
 
 lib.on_load = function()
@@ -724,7 +715,6 @@ lib.on_load = function()
     setmetatable(character, Character.metatable)
     character:load()
   end
-
 end
 
 lib.on_init = function()
@@ -748,4 +738,5 @@ lib.new = function(character_entity)
   return Character.new(character_entity)
 end
 
+lib.get_character = get_character
 return lib

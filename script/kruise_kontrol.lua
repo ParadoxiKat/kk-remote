@@ -35,15 +35,11 @@ function Klient.get_or_make(player_index)
 end
 
 function Klient:get_or_make_character()
-  if self.character then
-    if self.character.entity.valid then
-      return self.character
-    end
-    self.character = nil
-  end
-
-  self:make_character()
-  return self.character
+  if not self.player.valid then return end
+  if not self.player.character then return end
+  local char = Character.get_character(self.player.character.unit_number)
+  if char then return char end
+  return Character.new(self.player.character)
 end
 
 function Klient:on_player_action_command(event)
@@ -72,11 +68,6 @@ function Klient:on_player_cancel_command(event)
   if character:is_idle() then return end
   character:remark({"abort-command"})
   character:clear_state()
-end
-
-function Klient:make_character()
-  if not self.player.character then return end
-  self.character = Character.new(self.player.character)
 end
 
 local on_player_action_command = function(event)
