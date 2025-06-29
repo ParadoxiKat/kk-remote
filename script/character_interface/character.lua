@@ -556,13 +556,13 @@ function Character:take_item_stack(stack, count, source)
   stack.count = original - given
   --self:say("Took "..given)
   if source and source.valid then
-    source.surface.create_entity
-    {
-      name = "flying-text",
-      text = {"", "+", given, " ", get_localised_item_name(name), " (", inventory.get_item_count(name), ")"},
-      position = {source.position.x, source.position.y - 1}
-    }
     if self.entity.player then
+      self.entity.player.create_local_flying_text
+      {
+        text = {"", "+", given, " ", get_localised_item_name(name), " (", inventory.get_item_count(name), ")"},
+        position = {source.position.x, source.position.y - 1}
+      }
+    
       self.entity.player.play_sound{path = "utility/inventory_move"}
     end
   end

@@ -203,8 +203,8 @@ function Moving:clear_obstacles(position)
   {
     position = self.character:get_position(),
     radius = self.character.entity.get_radius() + 0.5,
-    collision_mask = self.character.entity.prototype.collision_mask
-  }
+    collision_mask = self.character.entity.prototype.collision_mask.layers
+} 
 
   local stand = false
   for k, entity in pairs (entities) do
