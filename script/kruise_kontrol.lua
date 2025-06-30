@@ -108,11 +108,11 @@ lib.events =
 }
 
 lib.on_init = function()
-  global.kruise_kontrol = global.kruise_kontrol or script_data
+  storage.kruise_kontrol = storage.kruise_kontrol or script_data
 end
 
 lib.on_load = function()
-  script_data = global.kruise_kontrol or script_data
+  script_data = storage.kruise_kontrol or script_data
   for k, klient in pairs (script_data.klients) do
     setmetatable(klient, Klient.metatable)
   end

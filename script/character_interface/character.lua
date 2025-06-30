@@ -709,7 +709,7 @@ lib.events =
 }
 
 lib.on_load = function()
-  script_data = global.character_interface or script_data
+  script_data = storage.character_interface or script_data
 
   for k, character in pairs (script_data.characters) do
     setmetatable(character, Character.metatable)
@@ -718,7 +718,7 @@ lib.on_load = function()
 end
 
 lib.on_init = function()
-  global.character_interface = global.character_interface or script_data
+  storage.character_interface = storage.character_interface or script_data
 
   game.forces.player.set_cease_fire("neutral", true)
   game.forces.player.set_cease_fire("enemy", false)
